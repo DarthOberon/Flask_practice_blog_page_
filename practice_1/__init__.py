@@ -1,9 +1,10 @@
 from datetime import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
+import os
 
 app =Flask(__name__)
-app.config['SECRET_KEY'] = '3dd13468875312d337e24a2350503cae'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
